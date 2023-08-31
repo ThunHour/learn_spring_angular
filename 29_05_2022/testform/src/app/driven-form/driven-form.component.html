@@ -1,0 +1,20 @@
+<form (ngSubmit)="OnSubmit()" class="container" #f="ngForm" #form>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+        <input type="email" class="form-control" ngModel name="email" #email="ngModel" id="exampleFormControlInput1" placeholder="name@example.com" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+
+        <div class="alert alert-danger" role="alert" *ngIf="!email.valid&&email.touched">
+            <p *ngIf="email.errors?.['required']">Email is a required field!</p>
+            <p *ngIf="email.errors?.['pattern']">This is not a valid Email!!!</p>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+        <input class="form-control" id="exampleFormControlTextarea1" ngModel name="address" #address="ngModel" rows="3" required />
+        <div *ngIf="!address.valid && address.touched" class="alert alert-danger" role="alert">
+            <p>Text must not be Vaild ...!!</p>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

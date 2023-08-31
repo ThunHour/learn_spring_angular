@@ -1,0 +1,11 @@
+<form (ngSubmit)="OnSubmit()" class="container" [formGroup]="form">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+        <input formControlName="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Password</label>
+        <input formControlName="password" type="Password" class="form-control" id="exampleFormControlInput1" placeholder="Enter Password">
+    </div>
+    <button class="btn btn-primary">Save</button>
+</form>

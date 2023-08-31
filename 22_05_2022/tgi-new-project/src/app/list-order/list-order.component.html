@@ -1,0 +1,6 @@
+<div *ngFor="let o of selectItem" class="listorder">
+  <app-order-item [listItem]="o" (CrdItem)="crdOperation($event)"></app-order-item>
+</div>
+
+
+

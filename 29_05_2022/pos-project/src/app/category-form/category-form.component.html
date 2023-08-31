@@ -1,0 +1,21 @@
+<form (ngSubmit)="addItem()" class="container" [formGroup]="pform">
+
+
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Category Name</label>
+        <input formControlName="name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Please input the name of category">
+        <div *ngIf="!pform.get('name')?.valid &&pform.get('name')?.touched" class="alert alert-danger" role="alert">
+            Name of category is reuired
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Category Description</label>
+        <input formControlName="description" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Please input the description of category">
+        <div *ngIf="!pform.get('description')?.valid &&pform.get('description')?.touched" class="alert alert-danger" role="alert">
+            Description of category is reuired
+        </div>
+    </div>
+    <button [disabled]="pform.status === 'INVALID' " type="submit" class="btn btn-primary m-3">Save</button>
+    <button type="button" class="btn btn-danger m-3" (click)="goBack()"> Cancel</button>
+
+</form>

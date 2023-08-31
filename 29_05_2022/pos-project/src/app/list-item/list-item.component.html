@@ -1,0 +1,13 @@
+<div class="col-sm-12 d-flex d-inline-flex mb-3">
+    <div class="me-3">
+        <button (click)="  displayAll()" class="btn btn-info" style="color: white;"> All</button>
+    </div>
+    <div class="d-flex d-inline-flex groupbtn me-3" *ngFor="let x of cateList">
+
+        <button (click)="displayByCate(x)" type="button" class="btn">{{x.name}}</button>
+    </div>
+
+</div>
+<div class="d-flex d-inline-flex" *ngFor="let i of listItem">
+    <app-item [item]="i"></app-item>
+</div>

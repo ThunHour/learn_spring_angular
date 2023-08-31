@@ -1,0 +1,14 @@
+<div class="overflow-auto scrollableHight" style="height: 550px; width: 390px;">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <div *ngFor="let o of list_order ">
+        <app-order-item [Item]="o "></app-order-item>
+    </div>
+</div>
+<div class="m-1 payment" *ngIf="list_order.length>0">
+    <div class="property d-flex d-inline-flex" (click)="buyItem()">
+        <p>Pay</p>
+        <p>{{getTotal()+" $"}}</p>
+    </div>
+
+
+</div>

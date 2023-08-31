@@ -1,0 +1,22 @@
+<div class="Container-fluid">
+  <div class="row">
+    <div class="col-sm-9 title">
+      <h1> List Of Food</h1>
+
+    </div>
+    <div class="col-sm-3 title">
+     <h2>
+      Selected
+     </h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-9">
+      <app-list-item [listItem]="item"  (clickIem)="onClickItem($event)"></app-list-item>
+    </div>
+    <div class="col-sm-3">
+      <app-list-order [selectItem]="list_order" (crdList)="exchange($event)"></app-list-order>
+    </div>
+  </div>
+
+</div>

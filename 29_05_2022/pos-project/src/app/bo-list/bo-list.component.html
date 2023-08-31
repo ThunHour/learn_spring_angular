@@ -1,0 +1,32 @@
+<div class="container mt-2">
+    <button class="btn btn-primary" (click)="onClickNewItem()"> New Item </button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Category</th>
+                <th scope="col">Price</th>
+                <th scope="col">Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="row_item" *ngFor="let x of listItem">
+                <td>{{x.title}}</td>
+                <td>{{getCategory(x.cate_id)}}</td>
+                <td>{{x.price}}</td>
+                <div class="btn btn_edit">
+                    <fa-icon [icon]="editIcon" class="iconedit" (click)="editItem(x)"></fa-icon>
+                </div>
+                <span style=" width: 20rem; "></span>
+
+
+                <div class="btn btn_delete " (click)="onClickDelete(x) ">
+                    <fa-icon [icon]="deleteIcon " class="icondelete "></fa-icon>
+                </div>
+
+            </tr>
+        </tbody>
+    </table>
+
+</div>

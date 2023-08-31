@@ -1,0 +1,43 @@
+<form (ngSubmit)="addItem()" class="container" [formGroup]="pform">
+
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Title</label>
+        <input formControlName="title" type="email" class="form-control" id="exampleFormControlInput1" placeholder="item'title">
+        <div *ngIf="!pform.get('title')?.valid &&pform.get('title')?.touched" class="alert alert-danger" role="alert">
+            Title is reuired
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Picture</label>
+        <input formControlName="pic" type="text" class="form-control" id="exampleFormControlInput1" placeholder="link'picture">
+        <div *ngIf="!pform.get('pic')?.valid &&pform.get('pic')?.touched" class="alert alert-danger" role="alert">
+            picture link is reuired
+        </div>
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Category</label>
+        </div>
+        <select name="orm-select form-select-lg mb-3" formControlName="cate_id" (change)="changeCategory($event)" style="width: 200px;height: 47px; font-size: 20px;">
+          <option value="" class="category" style="font-size: 20px;">Choose Category</option>
+          <option *ngFor="let cat of categoryList" value={{cat._id}}>{{cat.name}}</option>
+
+        </select>
+    </div>
+
+
+
+
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Price</label>
+        <input formControlName="price" type="number" class="form-control" id="exampleFormControlInput1" placeholder="usd">
+        <div *ngIf="!pform.get('price')?.valid &&pform.get('price')?.touched" nclass="alert alert-danger" role="alert">
+            price is reuired
+        </div>
+    </div>
+    <button [disabled]="pform.status === 'INVALID' " type="submit" class="btn btn-primary m-3">Save</button>
+    <button type="button" class="btn btn-danger m-3" (click)="goBack()"> Cancel</button>
+
+
+</form>

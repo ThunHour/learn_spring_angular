@@ -1,0 +1,47 @@
+
+<div class="w-100 d-flex d-inline-flex m-1 p-1 item">
+
+  <div class="col-sm-3">
+
+    <div class="image_content">
+      <img class="image" src="{{listItem.pic}}" alt="">
+    </div>
+  </div>
+
+  <div class="col-sm-9 align-content-center">
+
+
+    <div class="d-flex justify-content-between">
+      <div>
+
+        <p class="title_item">{{listItem.title}}</p>
+        <div class=" d-flex justify-content-center operation">
+
+
+          <div class=" btnoperate" style="margin-right: 5px;"
+          (click)="crdOperation(listItem,'decrease')">
+          <p>-</p>
+          </div>
+
+          <p >x{{listItem.qty}}</p>
+          <div  class="btnoperate" style="margin-left: 5px;"
+          (click)="crdOperation(listItem,'increase')">
+
+         <p>+</p>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="align-self-center">
+        {{listItem.price*listItem.qty}} USD
+      </div>
+
+      <div class=" btn_delete align-self-center" (click)="crdOperation(listItem,'delete')">
+          <fa-icon [icon]="Icon" class="icon"></fa-icon>
+      </div>
+
+    </div>
+  </div>
+
+</div>

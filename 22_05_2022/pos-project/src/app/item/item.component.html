@@ -1,0 +1,15 @@
+<div class="card m-1"style="width:16rem;" (click)="OnClickItem(item)">
+  <div class="col">
+    <div class="card">
+
+      <img [src]="item.pic" style="width: 16rem;height:12rem;" alt="">
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <div>{{item.title}}</div>
+          <div>{{item.price}}.0$</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

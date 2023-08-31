@@ -1,0 +1,42 @@
+mvn clean package
+scp -P 1234 tgi-final-project.jar china@13.250.57.109
+
+nohup java -jar tgi-final-project.jar &
+
+
+    server_name  bmi.tericcabrel.com;
+    index index.html index.htm;
+    access_log /var/log/nginx/bmiapp.log;
+    error_log  /var/log/nginx/bmiapp-error.log error;
+
+    location / {
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header Host $http_host;
+        proxy_pass http://127.0.0.1:8080;
+        proxy_redirect off;
+    }
+13.250.57.109
+
+
+sudo nano /etc/nginx/sites-available/tgi.final.kunapheap.com
+server {
+    server_name  tgi.final.kunapheap.com;
+    index index.html index.htm;
+    access_log /var/log/nginx/bmiapp.log;
+    error_log  /var/log/nginx/bmiapp-error.log error;
+
+    location / {
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header Host $http_host;
+        proxy_pass http://13.250.57.109:8080;
+        proxy_redirect off;
+    }
+}
+
+sudo ln -s /etc/nginx/sites-available/tgi.final.kunapheap.com /etc/nginx/sites-enabled/tgi.final.kunapheap.com
+
+sudo certbot --nginx -d tgi.final.kunapheap.com
